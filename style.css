@@ -41,7 +41,7 @@ body {
 
 .header h1 {
     margin: 0;
-    font-size: 20px
+    font-size: 15px; /* ここを変更しました */
 }
 
 .header .subtitle {
@@ -71,7 +71,7 @@ body {
 
 /* フォームの見出し（h2）の文字サイズを統一 */
 .card h2 {
-    font-size: 15px;
+    font-size: 15px; /* 追加しました */
 }
 
 /* radio and row */
@@ -98,7 +98,7 @@ body {
 
 /* ラジオボタンの文字サイズを統一 */
 .radio span {
-    font-size: 15px;
+    font-size: 15px; /* 追加しました */
 }
 
 /* actions grid */
@@ -385,20 +385,9 @@ body {
         grid-template-columns: repeat(1, 1fr)
     }
 
-   /* headerの文字サイズを統一 */
-.header h1 {
-    font-size: 15px;
-}
-
-/* フォームの見出し（h2）の文字サイズを統一 */
-.card h2 {
-    font-size: 15px;
-}
-
-/* ラジオボタンの文字サイズを統一 */
-.radio span {
-    font-size: 15px;
-}
+    .header h1 {
+        font-size: 17px
+    }
 
     .btn {
         padding: 8px 10px
