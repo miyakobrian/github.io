@@ -41,7 +41,7 @@ body {
 
 .header h1 {
     margin: 0;
-    font-size: 20px
+    font-size: 24px
 }
 
 .header .subtitle {
@@ -68,7 +68,9 @@ body {
 .card.mt-2 {
     margin-top: 14px;
 }
-
+.card h2 {
+    font-size: 18px; /* 好みのサイズで追記 */
+}
 /* radio and row */
 .row {
     display: flex;
