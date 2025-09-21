@@ -380,20 +380,9 @@ body {
         grid-template-columns: repeat(1, 1fr)
     }
 
-/* headerの文字サイズを統一 */
     .header h1 {
-    font-size: 18px;
-}
-
-/* フォームの見出し（h2）の文字サイズを統一 */
-    .card h2 {
-    font-size: 15px;
-}
-
-/* ラジオボタンの文字サイズを統一 */
-    .radio span {
-    font-size: 15px;
-}
+        font-size: 17px
+    }
 
     .btn {
         padding: 8px 10px
@@ -403,6 +392,4 @@ body {
         flex-direction: column;
         align-items: flex-start;
     }
-
-
 }
