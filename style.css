@@ -41,7 +41,7 @@ body {
 
 .header h1 {
     margin: 0;
-    font-size: 24px
+    font-size: 28px
 }
 
 .header .subtitle {
@@ -68,9 +68,11 @@ body {
 .card.mt-2 {
     margin-top: 14px;
 }
+/* フォームの見出し（h2）の文字サイズ - PC用 */
 .card h2 {
-    font-size: 18px; /* 好みのサイズで追記 */
+    font-size: 20px;
 }
+
 /* radio and row */
 .row {
     display: flex;
@@ -91,6 +93,11 @@ body {
 
 .radio input {
     accent-color: var(--accent)
+}
+
+/* ラジオボタンの文字サイズ - PC用 */
+.radio span {
+    font-size: 20px;
 }
 
 /* actions grid */
@@ -138,7 +145,7 @@ body {
 .controls {
     display: flex;
     justify-content: center;
-    margin-top: 12px
+    margin-bottom: 20px; /* 例: 20pxの余白を追加 */
 }
 
 .btn {
@@ -149,6 +156,7 @@ body {
     color: var(--text);
     cursor: pointer;
     border: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 16px;
 }
 
 .btn.primary {
@@ -373,20 +381,33 @@ body {
 
 /* responsive */
 @media (max-width: 600px) {
-    .actions-grid {
-        grid-template-columns: repeat(1, 1fr)
-    }
+    .actions-grid {
+        grid-template-columns: repeat(1, 1fr)
+    }
 
-    .header h1 {
-        font-size: 17px
-    }
+    /* h1の文字サイズ - スマホ用 */
+    .header h1 {
+        font-size: 22px;
+    }
 
-    .btn {
-        padding: 8px 10px
-    }
-    
-    .results-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+    /* フォームの見出し（h2）の文字サイズ - スマホ用 */
+    .card h2 {
+        font-size: 16px;
+    }
+
+    /* ラジオボタンの文字サイズ - スマホ用 */
+    .radio span {
+        font-size: 16px;
+    }
+
+    /* ボタンの文字サイズ - スマホ用 */
+    .btn {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+    
+    .results-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
