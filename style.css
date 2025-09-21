@@ -376,7 +376,11 @@ body {
     }
 
     .header h1 {
-        font-size: 17px
+        font-size: 17px /* 現在の設定 */
+    }
+    
+    .card h2 {
+        font-size: 15px; /* 例: h1(17px)よりも小さい15pxに設定 */
     }
 
     .btn {
