@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スト6 起き攻め対策ガイド</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="header">
+        <h1>スト6 起き攻め対策ガイド</h1>
+        <p class="subtitle">相手の行動から効果的な対策を素早く確認</p>
+    </div>
+
+    <div class="container">
+        <div id="selection-screen">
+            <div class="card">
+                <h2>1. 自分の視点を選択</h2>
+                <div class="row">
+                    <label class="radio">
+                        <input type="radio" name="player-side" value="攻め側 / 起き攻め" checked>
+                        <span>自分が攻め側</span>
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="player-side" value="守り側 / 被起き攻め">
+                        <span>自分が守り側</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>2. 相手がよくする行動を選択 (最大2つ)</h2>
+                <div class="note" id="selected-count-note">0/2 選択中</div>
+                <div class="actions-grid" id="opponent-actions-grid">
+                    </div>
+            </div>
+
+            <div class="controls">
+                <button class="btn primary" id="show-results-btn">対策を表示</button>
+            </div>
+            
+            <div class="card mt-2">
+                <div class="tip-section">
+                    <p class="small">特定の状況での対策を確認したい場合はこちら</p>
+                    <button class="btn" id="show-tips-btn">TIPS 特定状況での対策</button>
+                    <div id="tips-details" class="hidden">
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="results-screen" class="hidden">
+            <div class="controls">
+                <button class="btn" id="back-btn">戻る</button>
+                <button class="btn" id="expand-all-btn">すべて展開</button>
+            </div>
+
+            <div class="card">
+                <div class="results-header">
+                    <h2 class="result-title">推奨される対策</h2>
+                    <span class="small" id="selected-actions-summary"></span>
+                </div>
+                <div class="results-list" id="results-list">
+                    </div>
+                <div class="legend">
+                    <p class="small">
+                        評価点: ◎(◎点) 大ダメージや強力な攻め継続 / ○(○点) 有利な状況や小ダメージ / △+(△+点) わずかに有利な状況 / △(△点) 状況リセット / ✕(✕点) 大ダメージを受けるかターンを失う
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,390 @@
+/* SF6風カラー：濃紺 / 赤 / ゴールド */
+:root {
+    --bg: #0f1720;
+    --card: #0f1b25;
+    --accent: #e23b2e;
+    --gold: #f1c232;
+    --muted: #9aa6b2;
+    --text: #eef6fb;
+    --glass: rgba(255, 255, 255, 0.03);
+    --success: #2ecc71;
+    --danger: #ff6b6b;
+    --score-ex: #d47e00; /* ◎オレンジ */
+    --score-good: #f1c232; /* ○黄色 */
+    --score-ok: #a0a0a0; /* △グレー */
+    --score-bad: #4a90e2; /* ✕青 */
+}
+
+* {
+    box-sizing: border-box
+}
+
+html, body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    font-family: "Yu Gothic UI", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+    background: linear-gradient(180deg, #07101a 0%, var(--bg) 100%);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding-bottom: 40px;
+}
+
+/* header */
+.header {
+    padding: 18px;
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 20px
+}
+
+.header .subtitle {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 13px
+}
+
+/* container */
+.container {
+    max-width: 980px;
+    margin: 8px auto;
+    padding: 12px;
+}
+
+/* card */
+.card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), var(--card));
+    border-radius: 10px;
+    padding: 14px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.55);
+    margin-bottom: 14px;
+}
+.card.mt-2 {
+    margin-top: 14px;
+}
+
+/* radio and row */
+.row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 10px
+}
+
+.radio {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--glass);
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer
+}
+
+.radio input {
+    accent-color: var(--accent)
+}
+
+/* actions grid */
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 8px
+}
+
+.action {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .14s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.action:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45)
+}
+
+.action .name {
+    flex: 1
+}
+
+.action .badge {
+    font-size: 12px;
+    color: var(--muted)
+}
+
+/* selected state */
+.action.selected {
+    background: linear-gradient(90deg, rgba(226, 59, 46, 0.14), rgba(241, 194, 50, 0.06));
+    border: 1px solid rgba(226, 59, 46, 0.9);
+    box-shadow: 0 6px 18px rgba(226, 59, 46, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+/* controls */
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px
+}
+
+.btn {
+    padding: 9px 14px;
+    border-radius: 8px;
+    border: 0;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.btn.primary {
+    background: linear-gradient(90deg, var(--accent), var(--gold));
+    color: #081216;
+    font-weight: 700;
+    border: 0;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+}
+
+/* note */
+.note {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 8px;
+    text-align: center;
+}
+
+/* results */
+.results-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.results-header .result-title {
+    margin: 0;
+}
+
+.summary {
+    color: var(--muted);
+    margin-bottom: 10px
+}
+
+.results-list {
+    display: block
+}
+
+.result-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.result-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.result-title {
+    font-weight: 700;
+}
+
+.result-score {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.02);
+    min-width: 50px;
+    text-align: center;
+}
+.result-score.ex { background-color: rgba(212, 126, 0, 0.2); color: var(--score-ex); border: 1px solid var(--score-ex); }
+.result-score.good { background-color: rgba(241, 194, 50, 0.2); color: var(--score-good); border: 1px solid var(--score-good); }
+.result-score.ok { background-color: rgba(160, 160, 160, 0.2); color: var(--score-ok); border: 1px solid var(--score-ok); }
+.result-score.bad { background-color: rgba(74, 144, 226, 0.2); color: var(--score-bad); border: 1px solid var(--score-bad); }
+
+.breakdown {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.details {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.details p {
+    margin: 0 0 8px 0;
+}
+
+.legend {
+    margin-top: 12px;
+    color: var(--muted);
+}
+
+.small {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* hidden */
+.hidden {
+    display: none;
+}
+
+/* responsive */
+@media (max-width: 600px) {
+    .actions-grid {
+        grid-template-columns: repeat(1, 1fr)
+    }
+
+    .header h1 {
+        font-size: 17px
+    }
+
+    .btn {
+        padding: 8px 10px
+    }
+    
+    .results-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+/* ... 既存のCSSコード ... */
+
+/* results */
+.results-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.results-header .result-title {
+    margin: 0;
+}
+
+.summary {
+    color: var(--muted);
+    margin-bottom: 10px
+}
+
+.results-list {
+    display: block
+}
+
+.result-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.result-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    cursor: pointer; /* クリック可能であることを示す */
+}
+
+.result-top.no-pointer {
+    cursor: default; /* クリック不要の場合はカーソルをデフォルトに */
+}
+
+.result-title {
+    font-weight: 700;
+}
+
+.result-score {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.02);
+    min-width: 50px;
+    text-align: center;
+}
+.result-score span.point {
+    font-size: 12px; /* 点数を小さめに */
+    margin-left: 4px;
+}
+.result-score.ex { background-color: rgba(212, 126, 0, 0.2); color: var(--score-ex); border: 1px solid var(--score-ex); }
+.result-score.good { background-color: rgba(241, 194, 50, 0.2); color: var(--score-good); border: 1px solid var(--score-good); }
+.result-score.ok { background-color: rgba(160, 160, 160, 0.2); color: var(--score-ok); border: 1px solid var(--score-ok); }
+.result-score.bad { background-color: rgba(74, 144, 226, 0.2); color: var(--score-bad); border: 1px solid var(--score-bad); }
+
+.breakdown {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.details {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.details p {
+    margin: 0 0 8px 0;
+    font-size: 12px; /* コメントのフォントサイズを小さく */
+}
+
+.legend {
+    margin-top: 12px;
+    color: var(--muted);
+}
+
+.small {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* hidden */
+.hidden {
+    display: none;
+}
+
+/* responsive */
+@media (max-width: 600px) {
+    .actions-grid {
+        grid-template-columns: repeat(1, 1fr)
+    }
+
+    .header h1 {
+        font-size: 17px
+    }
+
+    .btn {
+        padding: 8px 10px
+    }
+    
+    .results-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
